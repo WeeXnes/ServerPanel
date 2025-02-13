@@ -1,0 +1,14 @@
+{
+  "panel_title": "Server Panel",
+  "password": "testpassword",
+  "vms": [
+    {
+      "name": "Gameserver",
+      "os": "Ubuntu 24.04 LTS"
+    },
+    {
+      "name": "Ubuntu_VM1",
+      "os": "Ubuntu 24.04 LTS"
+    }
+  ]
+}

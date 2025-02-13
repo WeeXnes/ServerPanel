@@ -1,0 +1,49 @@
+﻿@page "/login"
+@using System.Diagnostics
+@using System.Runtime.InteropServices
+@using ServerPanel.Core
+@inject NavigationManager Nav
+@inject CookieStorageAccessor Cookies
+
+@rendermode InteractiveServer
+
+
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white p-6">
+    <div class="glass p-8 rounded-lg shadow-lg w-96">
+        @if (!string.IsNullOrEmpty(ErrorMessage))
+        {
+            <div class="alert alert-error mb-4">@ErrorMessage</div>
+        }
+
+        <h2 class="text-2xl font-bold text-center mb-4">Login</h2>
+
+        <EditForm Model="@this" OnValidSubmit="PerformLogin">
+            <div class="mb-4">
+                <input @bind="Password" id="password_input" type="password" placeholder="Admin Password" required 
+                       class="input input-bordered w-full bg-white bg-opacity-20 backdrop-blur-lg placeholder-gray-300 text-white" />
+            </div>
+            <button type="submit" class="btn btn-primary w-full">Login</button>
+        </EditForm>
+    </div>
+</div>
+
+
+@code{
+
+    private string Password;
+    private string ErrorMessage;
+
+    private async Task PerformLogin()
+    {
+        if (Password == AuthService.AdminPassword)
+        {
+            await Cookies.SetValueAsync(AuthService.AuthCookieName, AuthService.ValidToken);
+            Nav.NavigateTo("/dashboard", forceLoad: true);
+        }
+        else
+        {
+            ErrorMessage = "Falsches Passwort!";
+        }
+    }
+
+}
