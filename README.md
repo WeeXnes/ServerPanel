@@ -11,7 +11,7 @@ A modern and sleek Server Control Panel built using **C# Blazor** and **DaisyUI*
 ## Features
 
 - **Modern UI**: Utilizes DaisyUI for a clean, responsive design with a blur-glass effect that gives the panel a contemporary and attractive look.
-- **Server Management**: Easily manage your server settings, configurations, and services directly from the control panel.
+- **Server Management**: Easily access information about your server, and control virtlib VMs.
 - **Responsive Design**: The panel adapts to any screen size, providing a smooth experience on both desktop and mobile devices.
 - **User Authentication**: Secure login to ensure only authorized users can access the control panel.
 - **Customizable Settings**: Easily modify the control panel settings through the `settings.json` configuration file.
